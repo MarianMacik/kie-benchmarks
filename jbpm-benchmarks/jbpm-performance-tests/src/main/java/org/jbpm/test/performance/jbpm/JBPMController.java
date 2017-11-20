@@ -24,6 +24,7 @@ import javax.transaction.Status;
 import javax.transaction.UserTransaction;
 
 import com.arjuna.ats.arjuna.common.arjPropertyManager;
+import com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionSynchronizationRegistryImple;
 import com.arjuna.ats.jdbc.TransactionalDriver;
 import com.arjuna.ats.jta.TransactionManager;
 import com.arjuna.ats.jta.common.JTAEnvironmentBean;
@@ -43,6 +44,8 @@ import org.drools.persistence.jta.JtaTransactionManager;
 import org.jbpm.runtime.manager.impl.DefaultRegisterableItemsFactory;
 import org.jbpm.runtime.manager.impl.jpa.EntityManagerFactoryManager;
 import org.jbpm.services.task.identity.JBossUserGroupCallbackImpl;
+import org.jbpm.test.performance.jbpm.dbcp.TransactionManagerWrapper;
+import org.jbpm.test.performance.jbpm.dbcp.TransactionSynchronizationRegistryWrapper;
 import org.kie.api.event.process.ProcessEventListener;
 import org.kie.api.event.rule.AgendaEventListener;
 import org.kie.api.io.ResourceType;
@@ -89,6 +92,9 @@ public class JBPMController {
     protected AgendaEventListener customAgendaListener;
     protected TaskLifeCycleEventListener customTaskListener;
     protected Map<String, Object> customEnvironmentEntries = new HashMap<String, Object>();
+
+    private static TransactionSynchronizationRegistryWrapper transactionSynchronizationRegistryWrapper = new TransactionSynchronizationRegistryWrapper(new TransactionSynchronizationRegistryImple());
+    private static TransactionManagerWrapper transactionManagerWrapper = new TransactionManagerWrapper(TransactionManager.transactionManager(), transactionSynchronizationRegistryWrapper);
 
     private static JBPMController instance;
 
@@ -320,19 +326,22 @@ public class JBPMController {
                 xadsClass.getMethod("setPassword", new Class[]{String.class}).invoke(xads, dsProps.getProperty("password").toUpperCase());
             }
 
+
+            InitialContext initContext = new InitialContext();
+            initContext.rebind("java:comp/UserTransaction", com.arjuna.ats.jta.UserTransaction.userTransaction());
+            initContext.rebind("java:comp/TransactionManager", transactionManagerWrapper);
+            initContext.rebind("java:comp/TransactionSynchronizationRegistry", transactionSynchronizationRegistryWrapper);
+
             BasicManagedDataSource pds = new BasicManagedDataSource();
             pds.setXaDataSourceInstance(xads);
-            pds.setTransactionManager(TransactionManager.transactionManager());
+            pds.setTransactionManager(transactionManagerWrapper);
             pds.setRollbackOnReturn(false);
             pds.setEnableAutoCommitOnReturn(false);
             pds.setMaxTotal(Integer.parseInt(dsProps.getProperty("maxPoolSize")));
             pds.setInitialSize(Integer.parseInt(dsProps.getProperty("maxPoolSize")));
 
-            InitialContext initContext = new InitialContext();
-            initContext.rebind("java:comp/UserTransaction", com.arjuna.ats.jta.UserTransaction.userTransaction());
-            initContext.rebind("java:comp/TransactionManager", TransactionManager.transactionManager());
-            initContext.rebind("java:comp/TransactionSynchronizationRegistry", new com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionSynchronizationRegistryImple());
             initContext.rebind(datasourceName, pds);
+
             return pds;
 
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | NoSuchMethodException | InvocationTargetException | NamingException e) {

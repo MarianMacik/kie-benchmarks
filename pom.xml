@@ -50,6 +50,41 @@
         <artifactId>kie-server-client</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie.server</groupId>
+        <artifactId>kie-server-common</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-api</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-dmn-model</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.optaplanner</groupId>
+        <artifactId>optaplanner-persistence-jaxb</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.optaplanner</groupId>
+        <artifactId>optaplanner-persistence-common</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.optaplanner</groupId>
+        <artifactId>optaplanner-persistence-xstream</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.optaplanner</groupId>
+        <artifactId>optaplanner-core</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

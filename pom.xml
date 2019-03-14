@@ -115,6 +115,16 @@
         <artifactId>kie-soup-project-datamodel-commons</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-core</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.soup</groupId>
+        <artifactId>kie-soup-commons</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

@@ -7,9 +7,9 @@ then
   PARAMS="$PARAMS -Dversion.org.kie=$version"
 fi
 
-if [ -n "${kie.server.client.version}" ]
+if [ -n "${kieServerClientVersion}" ]
 then
-  PARAMS="$PARAMS -Dkie.server.client.version=${kie.server.client.version}"
+  PARAMS="$PARAMS -Dkie.server.client.version=${kieServerClientVersion}"
 fi
 
 if [ -n "$suite" ]
@@ -143,5 +143,5 @@ fi
 
 # Provide Nexus location, group and Maven local repository directory to settings.xml
 PARAMS="$PARAMS -Dnexus.host=$LOCAL_NEXUS_IP -Dnexus.group=$NEXUS_GROUP -Dlocal.repo.dir=$WORKSPACE/maven-repo"
-
+echo "Parameters for mvn are: " $PARAMS
 mvn clean install -s settings.xml $ACTIVATE_DB_PROFILE exec:exec $PARAMS

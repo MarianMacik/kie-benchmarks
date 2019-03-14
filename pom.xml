@@ -90,6 +90,31 @@
         <artifactId>drools-compiler</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
+      <!--<dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-api</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>-->
+      <dependency>
+        <groupId>org.kie.soup</groupId>
+        <artifactId>kie-soup-maven-support</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <!--<dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-internal</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>-->
+      <dependency>
+        <groupId>org.kie.soup</groupId>
+        <artifactId>kie-soup-project-datamodel-api</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie.soup</groupId>
+        <artifactId>kie-soup-project-datamodel-commons</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

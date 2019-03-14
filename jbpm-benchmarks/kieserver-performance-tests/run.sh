@@ -7,6 +7,11 @@ then
   PARAMS="$PARAMS -Dversion.org.kie=$version"
 fi
 
+if [ -n "${kie.server.client.version}" ]
+then
+  PARAMS="$PARAMS -Dkie.server.client.version=${kie.server.client.version}"
+fi
+
 if [ -n "$suite" ]
 then
   PARAMS="$PARAMS -Dsuite=$suite"

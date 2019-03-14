@@ -45,6 +45,11 @@
         <artifactId>jmh-generator-annprocess</artifactId>
         <version>${version.jmh}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie.server</groupId>
+        <artifactId>kie-server-client</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

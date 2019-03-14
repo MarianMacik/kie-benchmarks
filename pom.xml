@@ -45,7 +45,7 @@
         <artifactId>jmh-generator-annprocess</artifactId>
         <version>${version.jmh}</version>
       </dependency>
-      <dependency>
+      <!--<dependency>
         <groupId>org.kie.server</groupId>
         <artifactId>kie-server-client</artifactId>
         <version>${kie.server.client.version}</version>
@@ -89,22 +89,22 @@
         <groupId>org.drools</groupId>
         <artifactId>drools-compiler</artifactId>
         <version>${kie.server.client.version}</version>
-      </dependency>
+      </dependency>-->
       <!--<dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-api</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>-->
-      <dependency>
+      <!--<dependency>
         <groupId>org.kie.soup</groupId>
         <artifactId>kie-soup-maven-support</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
-      <!--<dependency>
+      &lt;!&ndash;<dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-internal</artifactId>
         <version>${kie.server.client.version}</version>
-      </dependency>-->
+      </dependency>&ndash;&gt;
       <dependency>
         <groupId>org.kie.soup</groupId>
         <artifactId>kie-soup-project-datamodel-api</artifactId>
@@ -124,7 +124,7 @@
         <groupId>org.kie.soup</groupId>
         <artifactId>kie-soup-commons</artifactId>
         <version>${kie.server.client.version}</version>
-      </dependency>
+      </dependency>-->
       <dependency>
         <groupId>org.kie.server</groupId>
         <artifactId>kie-server-api</artifactId>

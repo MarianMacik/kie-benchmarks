@@ -125,6 +125,11 @@
         <artifactId>kie-soup-commons</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.kie.server</groupId>
+        <artifactId>kie-server-api</artifactId>
+        <version>${kie.server.client.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

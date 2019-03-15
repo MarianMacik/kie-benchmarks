@@ -127,7 +127,7 @@
       </dependency>-->
       <dependency>
         <groupId>org.kie.server</groupId>
-        <artifactId>kie-server-api</artifactId>
+        <artifactId>kie-server-client</artifactId>
         <version>${kie.server.client.version}</version>
       </dependency>
     </dependencies>

@@ -21,6 +21,10 @@
     <module>kieserver-performance-tests</module>
   </modules>
 
+  <properties>
+    <version.org.postgresql>42.2.6</version.org.postgresql>
+  </properties>
+
   <build>
     <pluginManagement>
       <plugins>

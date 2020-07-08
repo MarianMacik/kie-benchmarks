@@ -31,6 +31,12 @@
 
       <dependency>
         <groupId>org.kie</groupId>
+        <artifactId>kie-internal</artifactId>
+        <version>7.38.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.kie</groupId>
         <artifactId>kie-bom</artifactId>
         <type>pom</type>
         <version>${kie.bom.version}</version>

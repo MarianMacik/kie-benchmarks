@@ -30,6 +30,14 @@
     <dependencies>
 
       <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-bom</artifactId>
+        <type>pom</type>
+        <version>${kie.bom.version}</version>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-bom</artifactId>
         <version>7.38.0-SNAPSHOT</version>

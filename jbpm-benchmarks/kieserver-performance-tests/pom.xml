@@ -22,7 +22,8 @@
     <projectName>BPM Suite</projectName>
     <suite>LoadSuite</suite>
     <scenario></scenario>
-    <org.kie.perf.suite.test-package></org.kie.perf.suite.test-package>
+    <!-- Hotfix -->
+    <org.kie.perf.suite.test-package>org.jbpm.test.performance.scenario.load</org.kie.perf.suite.test-package>
     <startScriptLocation>./run.sh</startScriptLocation>
 
     <!-- Duration (in seconds), Iteration -->

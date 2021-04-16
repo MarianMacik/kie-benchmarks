@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   pr-check:
-    name: Java ${{ matrix.java }}
+    name: Java Something Else
     runs-on: ubuntu-latest
     strategy:
       matrix:
